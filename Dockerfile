@@ -61,6 +61,7 @@ RUN yum install -y --disableplugin=subscription-manager hostname procps \
     && chef-solo \
        --recipe-url ${NEXUS_REPOSITORY_MANAGER_COOKBOOK_URL} \
        --json-attributes /var/chef/solo.json \
+       --chef-license accept \
     && rpm -qa *chef* | xargs rpm -e \
     && rm -rf /etc/chef \
     && rm -rf /opt/chefdk \
